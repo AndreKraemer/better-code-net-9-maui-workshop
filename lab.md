@@ -1,8 +1,8 @@
-# Übung 1: Neue App anlegen
+# Übung 2: Layout-Skizze
 
-- Legen Sie ein neues .NET MAUI Projekt mit dem Namen `DontLetMeExpire` an.
-- Wählen Sie dazu die Vorlage `.NET MAUI-App`, das Framework `.NET 9.0` und **deaktivieren** Sie den Haken `Include sample content`
-- Starten Sie die App unter Windows
-- Starten Sie die App im Android-Emulator
-- Testen Sie die XAML-Hot-Reload-Funktionalität
-- Testen Sie die .NET-Hot-Reload-Funktionalität
+- Überlegen Sie sich, mit welchen **LayoutContainern** das Grundlayout der Startseite der Demo-App *Don't let me Expire* umgesetzt werden könnte
+- Erstellen Sie eine Skizze dazu
+
+Hier das gewünschte Layout
+
+![Skizze des gewünschten Layouts](Images/lab_b.jpg)
