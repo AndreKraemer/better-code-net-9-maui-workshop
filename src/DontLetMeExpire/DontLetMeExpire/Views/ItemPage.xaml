@@ -2,6 +2,7 @@
 <ContentPage
     x:Class="DontLetMeExpire.Views.ItemPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
@@ -52,6 +53,17 @@
                 Grid.Row="1"
                 Padding="16"
                 Spacing="8">
+                <Grid ColumnDefinitions="*, auto" ColumnSpacing="8">
+                    <SearchBar ios:SearchBar.SearchBarStyle="Minimal"
+                               Placeholder="Suche nach Barcode"
+                               SearchCommand="{Binding SearchBarcodeCommand}"
+                               Text="{Binding SearchText}" />
+                    <Button Grid.Column="1"
+                            Command="{Binding SearchBarcodeCommand}"
+                            FontFamily="MaterialSymbolsRounded"
+                            FontSize="24"
+                            Text="{StaticResource IconBarcode_scanner}" />
+                </Grid>                
                 <Label Text="Name" />
                 <Entry Text="{Binding Name}" />
                 <Label Margin="0,8,0,0" Text="Lagerort" />
