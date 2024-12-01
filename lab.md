@@ -1,10 +1,9 @@
-# Übung 8: Dependency Injection
+# Übung 9: Navigation
 
 - Öffnen Sie die App `DontLetMeExpire` in Visual Studio.
-- Ändern Sie den Datentyp des Feldes `_itemService` in der Klasse `MainViewModel` von `DummyItemService` auf die Schnittstelle `IItemService`
-- Löschen Sie die Initialisierung des Feldes `_itemService`und erstellen Sie stattdessen einen Konstruktorparameter `IItemService itemService` in der Klasse `MainViewModel`.
-- Initialisieren Sie das Feld `_itemService` im Konstruktor der Klasse `MainViewModel` mit dem Parameter `itemService`
-- Löschen Sie die Initialisierung des Feldes `_viewModel` in der Klasse `MainPage` und erstellen Sie stattdessen einen Konstruktorparameter `MainViewModel viewModel`.
-- Initialisieren Sie das Feld `_viewModel` im Konstruktor der Klasse `MainPage` mit dem Parameter `viewModel`
-- Registrieren Sie `MainViewModel`, `MainPage`, `IItemService` und `IStorageLocationService` in der Klasse `MauiProgram`
-
+- Registrieren Sie eine Route für die `ItemPage` in der Datei `AppShell.xaml.cs`.
+- Bearbeiten Sie die Methode `private async Task NavigateToAddItem` in der Klasse `MainViewModel` und navigieren Sie in der Methode über die `Shell` zur `ItemPage`.
+- Rufen Sie das Command über den Button **Neuen Eintrag hinzufügen** per *Command-Binding* auf.
+- Entfernen Sie in der Datei `AppShell.xaml` das Markup für den Menüeintrag `ItemPage`
+- **Bonus:** Erstellen Sie ein Interface `INavigationService` und eine Klasse `NavigationService`, über die Sie die Navigation von der `Shell` abstrahieren. Die Klasse `NavigationService` wrapped dabei die `Shell`-Navigation
+- **Bonus:** Registrieren Sie den `INavigationService` in der Klasse `MauiProgram` und injizieren sie ihn in die Klasse `MainViewModel`
