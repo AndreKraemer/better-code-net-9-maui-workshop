@@ -44,11 +44,51 @@ public class MainViewModel : ViewModelBase
     }
 
     private IEnumerable<StorageLocationWithItemCount> _storageLocations;
-    public IEnumerable<StorageLocationWithItemCount> StorageLocations 
+    public IEnumerable<StorageLocationWithItemCount> StorageLocations
     {
-        get => _storageLocations; 
-        private set => SetProperty(ref _storageLocations, value); 
+        get => _storageLocations;
+        private set => SetProperty(ref _storageLocations, value);
     }
+
+    public ICommand NavigateToStockCommand { get; }
+    private async Task NavigateToStock()
+    {
+        await NavigateToItemsPage("Stock");
+    }
+    public ICommand NavigateToExpiringSoonCommand { get; }
+    private async Task NavigateToExpiringSoon()
+    {
+        await NavigateToItemsPage("ExpiringSoon");
+    }
+    public ICommand NavigateToExpiresTodayCommand { get; }
+    private async Task NavigateToExpiresToday()
+    {
+        await NavigateToItemsPage("ExpiresToday");
+    }
+    public ICommand NavigateToExpiredCommand { get; }
+    private async Task NavigateToExpired()
+    {
+        await NavigateToItemsPage("Expired");
+    }
+
+    public ICommand NavigateToLocationCommand { get; set; }
+    private async Task NavigateToLocation(string locationId)
+    {
+        await NavigateToItemsPage("Location", locationId);
+    }
+
+
+    private async Task NavigateToItemsPage(string displayMode, string? locationId = null)
+    {
+        var navigationParams = new Dictionary<string, object>
+            {
+                { "DisplayMode", displayMode },
+                { "LocationId", locationId }
+            };
+        await _navigationService.GoToAsync(nameof(ItemsPage), navigationParams);
+    }
+
+
 
     public ICommand NavigateToAddItemCommand { get; }
 
@@ -62,6 +102,11 @@ public class MainViewModel : ViewModelBase
         _navigationService = navigationService;
         _itemService = itemService;
         _storageLocationService = storageLocationService;
+        NavigateToStockCommand = new Command(async () => await NavigateToStock());
+        NavigateToExpiringSoonCommand = new Command(async () => await NavigateToExpiringSoon());
+        NavigateToExpiresTodayCommand = new Command(async () => await NavigateToExpiresToday());
+        NavigateToExpiredCommand = new Command(async () => await NavigateToExpired());
+        NavigateToLocationCommand = new Command<string>(async (locationId) => await NavigateToLocation(locationId));
         NavigateToAddItemCommand = new Command(async () => await NavigateToAddItem());
     }
 

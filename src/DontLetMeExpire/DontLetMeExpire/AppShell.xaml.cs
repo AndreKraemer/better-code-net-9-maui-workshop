@@ -8,6 +8,7 @@ namespace DontLetMeExpire
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemPage), typeof(ItemPage));
+            Routing.RegisterRoute(nameof(ItemsPage), typeof(ItemsPage));
         }
     }
 }

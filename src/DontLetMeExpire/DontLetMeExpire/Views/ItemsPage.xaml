@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:DontLetMeExpire.Converters"
+             xmlns:models="clr-namespace:DontLetMeExpire.Models"
+             xmlns:vm="clr-namespace:DontLetMeExpire.ViewModels"
+             x:Class="DontLetMeExpire.Views.ItemsPage"
+             
+             x:DataType="vm:ItemsViewModel"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateToRelativeStringConverter x:Key="DateToRelativeStringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <CollectionView ItemsSource="{Binding Items}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:Item">
+                <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24,16" ColumnSpacing="8" Padding="8">
+                    <Border 
+                       Grid.Column="0" 
+                       Grid.Row="0" 
+                       Grid.RowSpan="2" 
+                       BackgroundColor="AliceBlue"
+                       StrokeShape="RoundRectangle 45"
+                       StrokeThickness="0">
+                        <Image Source="dotnet_bot.png"/>
+                    </Border>
+                    <!-- Name des Lagerorts -->
+                    <Label Grid.Column="1" FontAttributes="Bold" Text="{Binding Name}"/>
+                    <!-- Anzahl der Einträge -->
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding ExpirationDate, Converter={StaticResource DateToRelativeStringConverter}}" TextColor="DarkGray"/>
+                    <!--
+                           Darstelung eines einfachen Guillemet
+                           (Alt+0155 auf dem Ziffernblock, oder in der
+                           Windows-Zeichentabelle nach
+                           "Einfaches spitzes Anführungszeichen nach rechts" suchen)
+                       -->
+                    <Label Grid.Column="2"
+                          Grid.RowSpan="2" 
+                          FontSize="36"
+                          HorizontalOptions="End"
+                          VerticalOptions="Center"
+                          Margin="0,0,8,0"
+                          Text="›"
+                          />
+                    <Line Grid.Row="2"
+                          Grid.ColumnSpan="3"
+                          Stroke="DarkGray"
+                          StrokeThickness="1"
+                          X1="0"
+                          X2="{Binding Width, Source={RelativeSource Self}}"
+                          Y1="8"
+                          Y2="8"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

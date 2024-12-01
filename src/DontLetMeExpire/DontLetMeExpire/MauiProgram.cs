@@ -1,5 +1,6 @@
 ﻿using DontLetMeExpire.Services;
 using DontLetMeExpire.ViewModels;
+using DontLetMeExpire.Views;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
@@ -27,6 +28,9 @@ namespace DontLetMeExpire
 
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<MainPage>();
+
+            builder.Services.AddTransient<ItemsViewModel>();
+            builder.Services.AddTransient<ItemsPage>();
             return builder.Build();
         }
     }
