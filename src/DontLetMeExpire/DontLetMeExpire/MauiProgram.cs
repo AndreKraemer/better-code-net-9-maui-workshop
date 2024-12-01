@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DontLetMeExpire.Services;
+using DontLetMeExpire.ViewModels;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace DontLetMeExpire
 {
@@ -18,7 +21,11 @@ namespace DontLetMeExpire
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<IItemService, DummyItemService>();
+            builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
 
+            builder.Services.AddTransient<MainViewModel>();
+            builder.Services.AddTransient<MainPage>();
             return builder.Build();
         }
     }
