@@ -1,28 +1,11 @@
-# Übung 3: Implementieren Sie das Grundlayout
+# Übung 4: Startseite / Kacheln
 
-- Öffnen Sie ihr Projekt `DontLetMeExpire`
-- Löschen Sie den Inhalt der Datei `MainPage.xaml`, so dass nur noch foglender Code vorhanden ist
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DontLetMeExpire.MainPage">
-
-</ContentPage>
-```
-- Löschen Sie im CodeBehind die Variable `count` und die Methode `OnCounterClicked`, so dass nur noch folgender Code vorhanden ist:
-```csharp
-namespace DontLetMeExpire
-{
-  public partial class MainPage : ContentPage
-  {
-    public MainPage()
-    {
-      InitializeComponent();
-    }
-  }
-}
-```
-- Legen Sie das gezeigte Layout in der MainPage an. Nutzen Sie nur LayoutContainer, `BoxView`-Elemente, `Labels` und `Buttons`
+- Öffnen Sie die App `DontLetMeExpire` in Visual Studio.
+- Öffnen Sie die Datei `MainPage.xaml`
+- Ersetzen Sie die Dummy BoxViews im oberen Bereich mit den vier Kacheln **Mein Vorrat**, **Läuft bald ab**, **Läuft heute ab**, **Abgelaufen**
+- Nutzen Sie statische Dummy Daten für die Anzahl der Einträge in den Kacheln
+- Verwenden Sie ein Dummy Bild (entweder BoxView oder dotnet_bot.png)
+- Hilfreiche Links:
+https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/border?view=net-maui-9.0 
 
 ![Skizze des gewünschten Layouts](Images/lab_b.jpg)
