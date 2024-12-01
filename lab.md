@@ -1,10 +1,18 @@
-# Übung 6: Eingabeformular
+# Übung 7: MVVM
 
 - Öffnen Sie die App `DontLetMeExpire` in Visual Studio.
-- Erstellen Sie einen neuen Ordner `Views` im Projekt
-- Erstellen Sie im Ordner `Views` eine neue **.NET MAUI ContentPage (XAML)** mit dem Namen `ItemPage.xaml` und registrieren Sie sie wie folgt in der der Datei `AppShell.xaml`: `<ShellContent Title="Item" ContentTemplate="{DataTemplate views:ItemPage}" Route="ItemPage" />`
-- Registrieren Sie den XAML-Namespace views analog zum Namespace local in der Shell wie folgt: `xmlns:views="clr-namespace:DontLetMeExpire.Views"`
-- Bauen Sie die Maske `ItemPage.xaml` analog zum Screenshot auf
-
-
-![Skizze des gewünschten Layouts](Images/lab_b.jpg)
+- Kopieren Sie aus den Beispieldateien den Ordner `Models` inklusive Inhalt in Ihr Projekt.
+- Kopieren Sie aus den Beispieldateien den Ordner `ViewModels` inklusive Inhalt in Ihr Projekt.
+- Kopieren Sie aus den Beispieldateien den Ordner `Services` inklusive Inhalt in Ihr Projekt.
+- Legen Sie im Ordner `ViewModels` eine neue Klasse mit dem Namen `MainViewModel`an.
+- Lassen Sie die Klasse `MainViewModel` von der Klasse `ViewModelBase`erben.
+- Legen Sie in In der Klasse `MainViewModel` die folgenden vier Eigenschaften inklusive der zugehörigen privaten Felder an. Die Eigenschaften sollen bindbar sein und bei Änderung des Werts das Ereignis `PropertyChanged` auslösen. Nutzen Sie dazu die Methode `SetProperty` der Basisklasse `ViewModelBase`:
+  - `StockCount`
+  - `ExpiringSoonCount`
+  - `ExpiresTodayCount`
+  - `ExpiredCount`
+- Erzeugen Sie das folgende Command (vorerst mit leerem Code): `NavigateToAddItemCommand`
+- Erstellen Sie eine Methode `public async Task InitializeAsync()`. Laden Sie in dieser Methoden über den `DummyItemService` die Daten für die Eigenschaften
+- Verbinden Sie `MainPage` und `MainViewModel`.
+- Binden Sie in der Datei `MainPage.xaml` die neuen Eigenschaften des ViewModels an die Kacheln.
+- Überschreiben Sie die Methode `OnNavigatedTo` der `MainPage` und rufen Sie in ihr die Methode `InitializeAsync` auf
