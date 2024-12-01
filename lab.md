@@ -1,21 +1,15 @@
-# Übung 11: CollectionView
+# Übung 12: Bilder, Icons und Schriftarten
 
 - Öffnen Sie die App `DontLetMeExpire` in Visual Studio.
-- Legen Sie eine neue .NET MAUI ContentPage (XAML) mit dem Namen `ItemsPage.xaml` im Ordner `Views` an
-- Legen Sie im Ordner `ViewModels` ein `ViewModel` mit dem Namen `ItemsViewModel` an.
-- Lassen Sie die Klasse `ItemsViewModel`von `ViewModelBase` erben.
-- Legen Sie im ItemsViewModel die  Eigenschaft `ObservableCollection<Item> Items` an.
-- Injizieren Sie den `StorageLocationService` und den `ItemService` in Ihr ViewModel
-- Erstellen Sie eine Methode `InitzializeAsync` und laden Sie dort alle Einträge über den `ItemService`
-- Verbinden Sie `ItemsPage` und `ItemsViewModel` miteinander
-- Stellen Sie die Einträge in der Datei `ItemsPage.xaml` über einen CollectionView gemäß des Screenshots dar.
-- Registrieren Sie `ItemsPage` und `ItemsViewModel` in der Klasse `MauiProgram`
-- Registrieren Sie eine Route zur `ItemsPage` in der Datei `AppShell.xaml.cs`
-- Navigieren Sie von der Kachel **"Mein Vorrat"** der `MainPage` über einen `TapGestureRecognizer` zur Seite `ItemsPage`
-- Bonus 1: Datumsanzeige optimieren
-  - Kopieren Sie den Ordner `Converters` aus den Beispieldateien inklusive Inhalt in Ihr Projekt
-  - Nutzen Sie den `DateToRelativeStringConverter` um statt eines konkreten Datums eine relative Zeiteingabe anzuzuzeigen, also zum Beispiel **letze Woche** statt **12.09.2024**
-- Bonus 2: Navigieren Sie von den anderen Kacheln der `MainPage` (Läuft bald ab, Läuft heute ab, Abgelaufen) zur `ItemsPage` und laden Sie die entsprechenden Daten
-- Bonus 3: Navigieren Sie von den Lagerorten der Seite `MainPage` zur `ItemsPage` und laden Sie nur die zum Lagerort passenden Daten.
-
-![Liste der Vorräte](Images/lab_b.jpg)
+- Kopieren Sie alle Ordner im Ordner `Beispieldateien\Resources` in den Ordner `Resources` Ihres Projekts. Überschreiben Sie die bestehenden Dateien.
+- Registrieren Sie die neue Schriftart `MaterialSymbols-Rounded.ttf` in der Datei MauiProgram.cs
+  - `fonts.AddFont("MaterialSymbols-Rounded.ttf", "MaterialSymbolsRounded");`
+- Registrieren Sie das `ResourceDictionary` `MaterialSymbolsRounded.xaml` in der Datei `App.xaml`
+- Fügen die Symbole in die Kacheln der `MainPage.xaml` ein, in dem Sie die `Image`-Elemente durch `Labels` mit der Icon-Schriftart `MaterialSymbolsRounded` und folgenden `Icons` ersetzen.
+  - `IconHome_storage`
+  - `IconUpdate`
+  - `IconCalendar_today`
+  - `IconError`
+- Ersetzen Sie in der Datei `MainPage.xaml` das statische Bild in der Liste der Lagerorte durch ein `Icon`-Label, dessen Text an die Eigenschaft `Icon` gebunden wird.
+- Ersetzen Sie in der Datei `ItemsPage.xaml` das statische Bild durch ein Bild, dass an die Eigenschaft `Image` gebunden ist. Ist der Wert von `Image` `null`, dann soll das Bild `no_image.png` angezeigt werden.
+- Öffnen Sie die Projektdatei `DontLetMeExpire.csproj` im Texteditor. Ergänzen Sie bei den Einträgen `MauiIcon` und `MauiSplashScreen` die Eigenschaft `Color` mit folgendem Wert: `Color="#3d6dcc"`
