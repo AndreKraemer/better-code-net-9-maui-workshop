@@ -18,7 +18,13 @@
             </Border.GestureRecognizers>
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
                 <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontFamily="MaterialSymbolsRounded"
+                           FontSize="28"
+                           Text="{StaticResource IconHome_storage}"
+                           TextColor="DarkGray" />
+
                 <!-- Anzahl der Einträge, rechtsbündig -->
                 <Label Grid.Row="0"
                    Grid.Column="1"
@@ -41,7 +47,12 @@
             </Border.GestureRecognizers>
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
                 <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontFamily="MaterialSymbolsRounded"
+                           FontSize="28"
+                           Text="{StaticResource IconUpdate}"
+                           TextColor="Green" />
                 <!-- Anzahl der Einträge, rechtsbündig -->
                 <Label Grid.Row="0"
                    Grid.Column="1"
@@ -64,7 +75,12 @@
             </Border.GestureRecognizers>
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
                 <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontFamily="MaterialSymbolsRounded"
+                           FontSize="28"
+                           Text="{StaticResource IconCalendar_today}"
+                           TextColor="Orange" />
                 <!-- Anzahl der Einträge, rechtsbündig -->
                 <Label Grid.Row="0"
                   Grid.Column="1"
@@ -87,7 +103,12 @@
             </Border.GestureRecognizers>
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
                 <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
-                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontFamily="MaterialSymbolsRounded"
+                           FontSize="28"
+                           Text="{StaticResource IconError}"
+                           TextColor="Red" />
                 <!-- Anzahl der Einträge, rechtsbündig -->
                 <Label Grid.Row="0"
                   Grid.Column="1"
@@ -127,13 +148,19 @@
                         </Border.GestureRecognizers>
                         <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24" ColumnSpacing="8" Padding="8">
                             <Border 
-                        Grid.Column="0" 
-                        Grid.Row="0" 
-                        Grid.RowSpan="2" 
-                        BackgroundColor="AliceBlue"
-                        StrokeShape="RoundRectangle 45"
-                        StrokeThickness="0">
-                                <Image Source="dotnet_bot.png"/>
+                                Grid.Column="0" 
+                                Grid.Row="0" 
+                                Grid.RowSpan="2" 
+                                BackgroundColor="AliceBlue"
+                                StrokeShape="RoundRectangle 45"
+                                StrokeThickness="0">
+                                <Label
+                                    FontFamily="MaterialSymbolsRounded"
+                                    FontSize="24"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Icon}"
+                                    TextColor="#3d6dcc"
+                                    VerticalOptions="Center"/>
                             </Border>
                             <!-- Name des Lagerorts -->
                             <Label Grid.Column="1" FontAttributes="Bold" Text="{Binding Name}"/>
