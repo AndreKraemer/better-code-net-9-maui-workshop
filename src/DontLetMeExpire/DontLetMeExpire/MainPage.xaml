@@ -9,23 +9,99 @@
           RowDefinitions="100,100,auto,*,48"
           RowSpacing="16">
         <!-- Platzhalter für Kacheln -->
-        <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="DarkGray"/>
-        <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="DarkGreen"/>
-        <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="DarkOrange"/>
-        <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed"/>
+        <Border Grid.Row="0" Grid.Column="0" Background="White" StrokeShape="RoundRectangle 8" Stroke="LightGray">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
+                <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <!-- Anzahl der Einträge, rechtsbündig -->
+                <Label Grid.Row="0"
+                   Grid.Column="1"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   HorizontalOptions="End"
+                   Text="8"/>
+                <!-- Anzeige der Beschreibung -->
+                <Label Grid.Row="1" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   Text="Mein Vorrat"
+                   VerticalOptions="End"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" Background="White" StrokeShape="RoundRectangle 8" Stroke="DarkGreen">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
+                <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <!-- Anzahl der Einträge, rechtsbündig -->
+                <Label Grid.Row="0"
+                   Grid.Column="1"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   HorizontalOptions="End"
+                   Text="3"/>
+                <!-- Anzeige der Beschreibung -->
+                <Label Grid.Row="1" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   Text="Läuft bald ab"
+                   VerticalOptions="End"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Background="White" StrokeShape="RoundRectangle 8" Stroke="DarkOrange">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
+                <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <!-- Anzahl der Einträge, rechtsbündig -->
+                <Label Grid.Row="0"
+                  Grid.Column="1"
+                  FontAttributes="Bold"
+                  FontSize="20"
+                  HorizontalOptions="End"
+                  Text="1"/>
+                <!-- Anzeige der Beschreibung -->
+                <Label Grid.Row="1" 
+                  Grid.Column="0" 
+                  Grid.ColumnSpan="2"
+                  FontSize="20"
+                  Text="Läuft heute ab"
+                  VerticalOptions="End"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Background="White" StrokeShape="RoundRectangle 8" Stroke="DarkRed">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*" Padding="8">
+                <!-- Platzhalterbild in der ersten Zeile, ersten Spalte -->
+                <Image HeightRequest="40" HorizontalOptions="Start" Source="dotnet_bot.png"/>
+                <!-- Anzahl der Einträge, rechtsbündig -->
+                <Label Grid.Row="0"
+                  Grid.Column="1"
+                  FontAttributes="Bold"
+                  FontSize="20"
+                  HorizontalOptions="End"
+                  Text="2"/>
+                <!-- Anzeige der Beschreibung -->
+                <Label Grid.Row="1" 
+                  Grid.Column="0" 
+                  Grid.ColumnSpan="2"
+                  FontSize="20"
+                  Text="Abgelaufen"
+                  VerticalOptions="End"/>
+            </Grid>
+        </Border>
         <Label Grid.Row="2" 
                Grid.ColumnSpan="2" 
                FontSize="24" 
                Margin="0,8,0,0"
                Text="Meine Lagerorte"/>
-        
+
         <!-- Platzhalter für Lagerorte -->
         <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8">
             <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
             <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
             <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
         </VerticalStackLayout>
-        
+
         <!-- Buttons -->
         <Button Grid.Row="4"
                 Grid.Column="0"
