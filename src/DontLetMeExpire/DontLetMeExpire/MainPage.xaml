@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DontLetMeExpire.ViewModels"
              x:Class="DontLetMeExpire.MainPage"
+             x:DataType="vm:MainViewModel"
              Padding="16"
              BackgroundColor="#f5f7fa">
     <Grid ColumnDefinitions="*,*"
@@ -19,7 +21,7 @@
                    FontAttributes="Bold"
                    FontSize="20"
                    HorizontalOptions="End"
-                   Text="8"/>
+                   Text="{Binding StockCount}"/>
                 <!-- Anzeige der Beschreibung -->
                 <Label Grid.Row="1" 
                    Grid.Column="0" 
@@ -39,7 +41,7 @@
                    FontAttributes="Bold"
                    FontSize="20"
                    HorizontalOptions="End"
-                   Text="3"/>
+                   Text="{Binding ExpiresSoonCount}"/>
                 <!-- Anzeige der Beschreibung -->
                 <Label Grid.Row="1" 
                    Grid.Column="0" 
@@ -59,7 +61,7 @@
                   FontAttributes="Bold"
                   FontSize="20"
                   HorizontalOptions="End"
-                  Text="1"/>
+                  Text="{Binding ExpiresTodayCount}"/>
                 <!-- Anzeige der Beschreibung -->
                 <Label Grid.Row="1" 
                   Grid.Column="0" 
@@ -79,7 +81,7 @@
                   FontAttributes="Bold"
                   FontSize="20"
                   HorizontalOptions="End"
-                  Text="2"/>
+                  Text="{Binding ExpiredCount}"/>
                 <!-- Anzeige der Beschreibung -->
                 <Label Grid.Row="1" 
                   Grid.Column="0" 
