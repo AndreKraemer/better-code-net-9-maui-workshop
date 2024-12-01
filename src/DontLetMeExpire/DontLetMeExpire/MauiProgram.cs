@@ -1,7 +1,7 @@
-﻿using DontLetMeExpire.Services;
+﻿using CommunityToolkit.Maui;
+using DontLetMeExpire.Services;
 using DontLetMeExpire.ViewModels;
 using DontLetMeExpire.Views;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
 namespace DontLetMeExpire
@@ -13,6 +13,7 @@ namespace DontLetMeExpire
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -32,6 +33,9 @@ namespace DontLetMeExpire
 
             builder.Services.AddTransient<ItemsViewModel>();
             builder.Services.AddTransient<ItemsPage>();
+
+            builder.Services.AddTransient<ItemViewModel>();
+            builder.Services.AddTransient<ItemPage>();
             return builder.Build();
         }
     }
