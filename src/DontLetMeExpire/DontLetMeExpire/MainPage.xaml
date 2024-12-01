@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DontLetMeExpire.Models"
              xmlns:vm="clr-namespace:DontLetMeExpire.ViewModels"
              x:Class="DontLetMeExpire.MainPage"
              x:DataType="vm:MainViewModel"
@@ -98,36 +99,38 @@
                Text="Meine Lagerorte"/>
 
         <!-- Platzhalter für Lagerorte -->
-        <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8">
-            <Border BackgroundColor="White" StrokeShape="RoundRectangle 16" StrokeThickness="0">
-                <!--
+        <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8" BindableLayout.ItemsSource="{Binding StorageLocations}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="models:StorageLocationWithItemCount">
+                    <Border BackgroundColor="White" StrokeShape="RoundRectangle 16" StrokeThickness="0">
+                        <!--
                         Definition des Schattens. Um natürlich zu wirken,
                         kommt das Licht von oben (Offset X = 0)
                     -->
-                <Border.Shadow>
-                    <Shadow Opacity="0.2" Radius="4" Offset="0,4" />
-                </Border.Shadow>
-                <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24" ColumnSpacing="8" Padding="8">
-                    <Border 
+                        <Border.Shadow>
+                            <Shadow Opacity="0.2" Radius="4" Offset="0,4" />
+                        </Border.Shadow>
+                        <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24" ColumnSpacing="8" Padding="8">
+                            <Border 
                         Grid.Column="0" 
                         Grid.Row="0" 
                         Grid.RowSpan="2" 
                         BackgroundColor="AliceBlue"
                         StrokeShape="RoundRectangle 45"
                         StrokeThickness="0">
-                            <Image Source="dotnet_bot.png"/>
-                    </Border>
-                    <!-- Name des Lagerorts -->
-                    <Label Grid.Column="1" FontAttributes="Bold" Text="Gefrierschrank"/>
-                    <!-- Anzahl der Einträge -->
-                    <Label Grid.Row="1" Grid.Column="1" Text="4 Einträge" TextColor="LightGray"/>
-                    <!--
+                                <Image Source="dotnet_bot.png"/>
+                            </Border>
+                            <!-- Name des Lagerorts -->
+                            <Label Grid.Column="1" FontAttributes="Bold" Text="{Binding Name}"/>
+                            <!-- Anzahl der Einträge -->
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding ItemCount, StringFormat='{0} Einträge'}" TextColor="LightGray"/>
+                            <!--
                             Darstelung eines einfachen Guillemet
                             (Alt+0155 auf dem Ziffernblock, oder in der
                             Windows-Zeichentabelle nach
                             "Einfaches spitzes Anführungszeichen nach rechts" suchen)
                         -->
-                    <Label Grid.Column="2"
+                            <Label Grid.Column="2"
                            Grid.RowSpan="2" 
                            FontSize="36"
                            HorizontalOptions="End"
@@ -135,84 +138,10 @@
                            Margin="0,0,8,0"
                            Text="›"
                            />
-                </Grid>
-            </Border>
-            <Border BackgroundColor="White" StrokeShape="RoundRectangle 16" StrokeThickness="0">
-                <!--
-                        Definition des Schattens. Um natürlich zu wirken,
-                        kommt das Licht von oben (Offset X = 0)
-                    -->
-                <Border.Shadow>
-                    <Shadow Opacity="0.2" Radius="4" Offset="0,4" />
-                </Border.Shadow>
-                <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24" ColumnSpacing="8" Padding="8">
-                    <Border 
-                        Grid.Column="0" 
-                        Grid.Row="0" 
-                        Grid.RowSpan="2" 
-                        BackgroundColor="AliceBlue"
-                        StrokeShape="RoundRectangle 45"
-                        StrokeThickness="0">
-                        <Image Source="dotnet_bot.png"/>
+                        </Grid>
                     </Border>
-                    <!-- Name des Lagerorts -->
-                    <Label Grid.Column="1" FontAttributes="Bold" Text="Kühlschrank"/>
-                    <!-- Anzahl der Einträge -->
-                    <Label Grid.Row="1" Grid.Column="1" Text="2 Einträge" TextColor="LightGray"/>
-                    <!--
-                            Darstelung eines einfachen Guillemet
-                            (Alt+0155 auf dem Ziffernblock, oder in der
-                            Windows-Zeichentabelle nach
-                            "Einfaches spitzes Anführungszeichen nach rechts" suchen)
-                        -->
-                    <Label Grid.Column="2"
-                           Grid.RowSpan="2" 
-                           FontSize="36"
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           Margin="0,0,8,0"
-                           Text="›"
-                           />
-                </Grid>
-            </Border>
-            <Border BackgroundColor="White" StrokeShape="RoundRectangle 16" StrokeThickness="0">
-                <!--
-                        Definition des Schattens. Um natürlich zu wirken,
-                        kommt das Licht von oben (Offset X = 0)
-                    -->
-                <Border.Shadow>
-                    <Shadow Opacity="0.2" Radius="4" Offset="0,4" />
-                </Border.Shadow>
-                <Grid ColumnDefinitions="48,*,24"  RowDefinitions="24,24" ColumnSpacing="8" Padding="8">
-                    <Border 
-                        Grid.Column="0" 
-                        Grid.Row="0" 
-                        Grid.RowSpan="2" 
-                        BackgroundColor="AliceBlue"
-                        StrokeShape="RoundRectangle 45"
-                        StrokeThickness="0">
-                        <Image Source="dotnet_bot.png"/>
-                    </Border>
-                    <!-- Name des Lagerorts -->
-                    <Label Grid.Column="1" FontAttributes="Bold" Text="Vorratsschrank"/>
-                    <!-- Anzahl der Einträge -->
-                    <Label Grid.Row="1" Grid.Column="1" Text="2 Einträge" TextColor="LightGray"/>
-                    <!--
-                            Darstelung eines einfachen Guillemet
-                            (Alt+0155 auf dem Ziffernblock, oder in der
-                            Windows-Zeichentabelle nach
-                            "Einfaches spitzes Anführungszeichen nach rechts" suchen)
-                        -->
-                    <Label Grid.Column="2"
-                           Grid.RowSpan="2" 
-                           FontSize="36"
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           Margin="0,0,8,0"
-                           Text="›"
-                           />
-                </Grid>
-            </Border>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
         </VerticalStackLayout>
 
         <!-- Buttons -->

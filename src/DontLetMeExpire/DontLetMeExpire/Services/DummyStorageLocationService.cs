@@ -10,6 +10,7 @@ public class DummyStorageLocationService : IStorageLocationService
     public DummyStorageLocationService(IItemService itemService)
     {
         _itemService = itemService;
+        _storageLocations = [..DummyData.Locations];
     }
 
     public Task<IEnumerable<StorageLocation>> GetAsync()
