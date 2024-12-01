@@ -1,11 +1,12 @@
 ﻿using DontLetMeExpire.Services;
+using DontLetMeExpire.Views;
 using System.Windows.Input;
 
 namespace DontLetMeExpire.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-
+    private INavigationService _navigationService;
     private IItemService _itemService;
 
     private int _stockCount;
@@ -40,13 +41,14 @@ public class MainViewModel : ViewModelBase
 
     public ICommand NavigateToAddItemCommand { get; }
 
-    private Task NavigateToAddItem()
+    private async Task NavigateToAddItem()
     {
-        return Task.CompletedTask;
+        await _navigationService.GoToAsync(nameof(ItemPage));
     }
 
-    public MainViewModel(IItemService itemService)
+    public MainViewModel(INavigationService navigationService, IItemService itemService)
     {
+        _navigationService = navigationService;
         _itemService = itemService;
         NavigateToAddItemCommand = new Command(async () => await NavigateToAddItem());
     }

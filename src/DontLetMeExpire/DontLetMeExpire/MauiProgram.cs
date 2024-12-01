@@ -23,6 +23,7 @@ namespace DontLetMeExpire
 #endif
             builder.Services.AddSingleton<IItemService, DummyItemService>();
             builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
+            builder.Services.AddSingleton<INavigationService, NavigationService>();
 
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<MainPage>();

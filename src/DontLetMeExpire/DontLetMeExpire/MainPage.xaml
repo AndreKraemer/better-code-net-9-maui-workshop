@@ -216,7 +216,8 @@
         </VerticalStackLayout>
 
         <!-- Buttons -->
-        <Button Grid.Row="4"
+        <Button Command="{Binding NavigateToAddItemCommand}"
+                Grid.Row="4"
                 Grid.Column="0"
                 BackgroundColor="#3d6ddc"
                 Text="Eintrag hinzufügen"/>
